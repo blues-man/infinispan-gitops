@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wind-turbine
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: devopsdaysge
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: k8s
+    repoURL: https://github.com/blues-man/infinispan-gitops
+    targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

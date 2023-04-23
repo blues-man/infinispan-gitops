@@ -1,0 +1,2 @@
+resources:
+- infinispan-statefulset.yaml
